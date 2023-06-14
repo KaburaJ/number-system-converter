@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/kaburaj.github.io/number-system-converter/static/css/main.b329c59d.css",
-    "main.js": "/kaburaj.github.io/number-system-converter/static/js/main.a24a0622.js",
-    "static/js/787.3c2d71f5.chunk.js": "/kaburaj.github.io/number-system-converter/static/js/787.3c2d71f5.chunk.js",
-    "index.html": "/kaburaj.github.io/number-system-converter/index.html",
-    "main.b329c59d.css.map": "/kaburaj.github.io/number-system-converter/static/css/main.b329c59d.css.map",
-    "main.a24a0622.js.map": "/kaburaj.github.io/number-system-converter/static/js/main.a24a0622.js.map",
-    "787.3c2d71f5.chunk.js.map": "/kaburaj.github.io/number-system-converter/static/js/787.3c2d71f5.chunk.js.map"
+    "main.css": "/number-system-converter/static/css/main.b329c59d.css",
+    "main.js": "/number-system-converter/static/js/main.a1839168.js",
+    "static/js/787.3c2d71f5.chunk.js": "/number-system-converter/static/js/787.3c2d71f5.chunk.js",
+    "index.html": "/number-system-converter/index.html",
+    "main.b329c59d.css.map": "/number-system-converter/static/css/main.b329c59d.css.map",
+    "main.a1839168.js.map": "/number-system-converter/static/js/main.a1839168.js.map",
+    "787.3c2d71f5.chunk.js.map": "/number-system-converter/static/js/787.3c2d71f5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b329c59d.css",
-    "static/js/main.a24a0622.js"
+    "static/js/main.a1839168.js"
   ]
 }
