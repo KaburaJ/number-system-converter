@@ -29,14 +29,19 @@ function App() {
   const handleOutputSystemChange = (e) => {
     const selectedValue = e.target.value;
     const selectedOption = options.find((option) => option.value === selectedValue);
+    console.log(typeof(selectedOption));
     setOutputSystem(selectedOption);
     convertNumber(value);
   };
 
+  const resetInput = () => {
+    setValue('')
+  } 
+
   const convertNumber = (num) => {
     let converted = '';
 
-    if (/^[01]+$/.test(num)) {
+    if (/^[01]+$/.test(num)) { //binary
       if (outputSystem.value === '10') {
         converted = parseInt(num, 2).toString(10);
       } else if (outputSystem.value === '0o') {
@@ -44,7 +49,10 @@ function App() {
       } else if (outputSystem.value === '0x') {
         converted = parseInt(num, 2).toString(16);
       }
-    } else if (/^\d+$/.test(num)) {
+      else if (outputSystem.value === '0b') {
+        converted= parseInt(num, 2);
+      }
+    } else if (/^\d+$/.test(num)) { //decimal
       if (outputSystem.value === '0b') {
         converted = parseInt(num, 10).toString(2);
       } else if (outputSystem.value === '0o') {
@@ -52,7 +60,10 @@ function App() {
       } else if (outputSystem.value === '0x') {
         converted = parseInt(num, 10).toString(16);
       }
-    } else if (/^[0-7]+$/.test(num.slice(2))) {
+      else if (outputSystem.value === '10') {
+        converted = parseInt(num, 10);
+      }
+    } else if (/^[0-7]+$/.test(num.slice(2))) { //Octal
       if (outputSystem.value === '0b') {
         converted = parseInt(num, 8).toString(2);
       } else if (outputSystem.value === '10') {
@@ -60,13 +71,19 @@ function App() {
       } else if (outputSystem.value === '0x') {
         converted = parseInt(num, 8).toString(16);
       }
-    } else if (/^[0-9A-Fa-f]+$/.test(num.slice(2))) {
+      else if (outputSystem.value === '0o') {
+        converted = parseInt(num, 8);
+      }
+    } else if (/^[0-9A-Fa-f]+$/.test(num.slice(2))) { //Hex
       if (outputSystem.value === '0b') {
         converted = parseInt(num, 16).toString(2);
       } else if (outputSystem.value === '10') {
         converted = parseInt(num, 16).toString(10);
       } else if (outputSystem.value === '0o') {
         converted = parseInt(num, 16).toString(8);
+      }
+      else if(outputSystem.value === '0x') {
+        converted = parseInt(num, 16);
       }
     }
 
@@ -89,6 +106,7 @@ function App() {
       <div>
         <label>Output System:</label>
         <select className="selector" value={outputSystem.value} onChange={handleOutputSystemChange}>
+          {/* {console.log(options.find((option) => option.value === outputSystem.value))} */}
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -98,6 +116,7 @@ function App() {
       </div>
       </div>
       <input className="input" value={value} onChange={handleNumberInput} placeholder='Enter number for conversion'/>
+      <button placeholder='button' onClick={resetInput} className='reset'>Reset</button>
       <h2>
         Converted Value: 
         <value>{convertedValue}</value></h2>
